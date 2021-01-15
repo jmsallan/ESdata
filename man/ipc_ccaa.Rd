@@ -5,7 +5,7 @@
 \alias{ipc_ccaa}
 \title{Spanish Consumer Price Index and inflation rates by autonomous community and group (since 2002)}
 \format{
-An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 235400 rows and 5 columns.
+An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 236436 rows and 5 columns.
 }
 \source{
 \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=3470&capsel=3466}
@@ -17,8 +17,8 @@ ipc_ccaa
 Monthly Consumer Price Index and inflation rates of Spain and autonomos communities by groups of goods since 2002. Inflation rates are computed as variations of the Consumer Price Index (base of 31 May 2016 for all Spain).
 
 \describe{
-\item{region}{The ISO 3166-2 code for the region of each row. Spanish data have the 'ES' label here.}
 \item{periodo}{The last day of the month of each row, in date format.}
+\item{region}{The ISO 3166-2 code for the region of each row. Spanish data have the 'ES' label here.}
 \item{grupo}{The label 'general' is for the generic inflation data. Each group is identified by an index in the range G01 to G12. See 'ipc_clas_grupos' for the actual meaning of each group.}
 \item{dato}{The type of datum for each row: 'index' is the Consumer Price Index,  'mensual' is the monthly inflation rate, 'anual' the inter-annual inflation rate and 'acumulada' the cumulative inflation rate for the year.}
 \item{valor}{for rows with dato equal to 'indice' the Consumer Price Index,  inflation rate in percentage for the rest of values.}
