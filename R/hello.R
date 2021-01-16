@@ -209,4 +209,20 @@
 #'
 'ipc_valores'
 
-
+#' Weights of groups in the Consumer Price Index by region and year
+#'
+#' @description Weights of grupos in the Consumer Price index by region and year. The sum of weights for a region and year is equal to 1000.
+#'
+#' \describe{
+#' \item{periodo}{The year of the weight datum, in numeric format}
+#' \item{region}{The ISO 3166-2 code for the region of each row. Spanish data have the 'ES' label here.}
+#' \item{grupo}{Each group is identified by aa index in the range G01 to G12. See 'ipc_clas_grupos' for the actual meaning of each group.}
+#' \item{valor}{The value of the weight, ranging from 0 to 1000.}
+#' }
+#' @examples
+#'
+#' ipc_pond
+#'
+#' @source \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=3470&capsel=3466}
+#'
+'ipc_pond'
