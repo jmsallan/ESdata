@@ -3,7 +3,7 @@
 \docType{data}
 \name{ipc_hist_grupos}
 \alias{ipc_hist_grupos}
-\title{Historical series of variation of Spanish Consumer Price Index by group (since 1993)}
+\title{Historical series of inflation rates by group (since 1993)}
 \format{
 An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 12769 rows and 4 columns.
 }

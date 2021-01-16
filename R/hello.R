@@ -99,7 +99,7 @@
 #'
 'epa_sector'
 
-#' Historical series of variation of Spanish Consumer Price Index (since 1961)
+#' Historical series of inflation rates (since 1961)
 #'
 #' @description Monthly inflation data of Spain since 1961
 #'
@@ -117,7 +117,7 @@
 #'
 'ipc_hist'
 
-#' Historical series of variation of Spanish Consumer Price Index by group (since 1993)
+#' Historical series of inflation rates by group (since 1993)
 #'
 #'  @description Monthly inflation data of Spain by group of goods since 1993.
 #'
@@ -137,7 +137,7 @@
 
 #' Spanish Consumer Price Index and inflation rates by autonomous community and group (since 2002)
 #'
-#' @description Monthly Consumer Price Index and inflation rates of Spain and autonomos communities by groups of goods since 2002. Inflation rates are computed as variations of the Consumer Price Index (base of 31 May 2016 for all Spain).
+#' @description Monthly Consumer Price Index (Índice de Precios al Consumo) and inflation rates of Spain and autonomos communities by groups of goods since 2002. Inflation rates are computed as variations of the Consumer Price Index (base of 31 May 2016 for all Spain).
 #'
 #'\describe{
 #' \item{periodo}{The last day of the month of each row, in date format.}
@@ -226,3 +226,40 @@
 #' @source \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=3470&capsel=3466}
 #'
 'ipc_pond'
+
+#' Spanish Housing Price Index by autonomous community
+#'
+#' @description Quarterly Housing Price Index (Índice de Precios de la vivienda) of Spain and autonomos communities.
+#'
+#'\describe{
+#' \item{periodo}{The last day of the qaurter of each row, in date format.}
+#' \item{region}{The ISO 3166-2 code for the region of each row. Spanish data have the 'ES' label here.}
+#' \item{tipo}{The label 'general' is for the generic housing prices, 'nueva" for new housing, and 'segunda_mano' for second-hand housing.}
+#' \item{dato}{The type of datum for each row: 'index' is the Housing Price Index,  'mensual' is the monthly variation of the index, 'anual' the inter-annual variation of the index and 'acumulada' the cumulative variation of the index for the year.}
+#' \item{valor}{for rows with dato equal to 'indice' the Jousing Price Index,  housing price variation in percentage for the rest of values.}
+#' }
+#' @examples
+#'
+#' ipv
+#'
+#' @source \url{https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736152838&menu=ultiDatos&idp=1254735976607}
+#'
+'ipv'
+
+#' Weights of groups in the Housing Price Index by region and year
+#'
+#' @description Weights of new and seconds hand house in the Housing Price index by region and year. The sum of weights for a region and year is equal to 100.
+#'
+#' \describe{
+#' \item{periodo}{The year of the weight datum, in numeric format.}
+#' \item{region}{The ISO 3166-2 code for the region of each row. Spanish data have the 'ES' label here.}
+#' \item{tipo}{The label 'nueva" si for new housing, and 'segunda_mano' for second-hand housing.}
+#' \item{valor}{The value of the weight, ranging from 0 to 100.}
+#' }
+#' @examples
+#'
+#' ipv_pond
+#'
+#' @source \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=3470&capsel=3466}
+#'
+'ipv_pond'

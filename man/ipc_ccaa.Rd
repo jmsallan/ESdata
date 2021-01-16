@@ -14,7 +14,7 @@ An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, 
 ipc_ccaa
 }
 \description{
-Monthly Consumer Price Index and inflation rates of Spain and autonomos communities by groups of goods since 2002. Inflation rates are computed as variations of the Consumer Price Index (base of 31 May 2016 for all Spain).
+Monthly Consumer Price Index (Índice de Precios al Consumo) and inflation rates of Spain and autonomos communities by groups of goods since 2002. Inflation rates are computed as variations of the Consumer Price Index (base of 31 May 2016 for all Spain).
 
 \describe{
 \item{periodo}{The last day of the month of each row, in date format.}
