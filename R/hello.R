@@ -263,3 +263,111 @@
 #' @source \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=3470&capsel=3466}
 #'
 'ipv_pond'
+
+#' Gross domestic product (GDP) of Spain, production approach
+#'
+#' @description Quearterly Gross Domestic product of spain, calculated through the production apprach. Includes the final value of GDP and its aggregates. Includes indices and total value for each aggregate. Data from 1995 to present.
+#'
+#' \describe{
+#' \item{periodo}{The last day of the quarter of each row, in date format.}
+#' \item{agregado}{The code for each aggregate of the GDP through the production approach. See 'pib_oferta_agregados' for a list of aggregates (in Spanish).}
+#' \item{ajuste}{'ajustad' means that data are adjusted from seasonality and calendar, and 'no_ajustado' means that are not adjusted.}
+#' \item{tipo}{Rows with 'valor' contain the actual GDP value, and rows with 'indice' and indexed value.}
+#' \item{dato}{The type of datum for each row. 'base' means the actual value, 'var_trim' the quarterly variation, 'var_anual' the annual variation, 'ap_trim' the quarterly contribution and 'ap_anual' the annual contribution.}
+#' \item{valor}{The value of the datum for each row.}
+#' }
+#' @examples
+#'
+#' pib_pm_oferta
+#'
+#' @source \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=5614&capsel=5615}
+#'
+'pib_pm_oferta'
+
+#' Gross domestic product (GDP) of Spain, expenditure approach
+#'
+#' @description Quearterly Gross Domestic product of Spain, calculated through the expenditure apprach. Includes the final value of GDP and its aggregates. Includes indices and total value for each aggregate. Data from 1995 to present.
+#'
+#' \describe{
+#' \item{periodo}{The last day of the quarter of each row, in date format.}
+#' \item{agregado}{The code for each aggregate of the GDP through the production approach. See 'pib_demanda_agregados' for a list of aggregates (in Spanish).}
+#' \item{ajuste}{'ajustad' means that data are adjusted from seasonality and calendar, and 'no_ajustado' means that are not adjusted.}
+#' \item{tipo}{Rows with 'valor' contain the actual GDP value, and rows with 'indice' and indexed value.}
+#' \item{dato}{The type of datum for each row. 'base' means the actual value, 'var_trim' the quarterly variation, 'var_anual' the annual variation, 'ap_trim' the quarterly contribution and 'ap_anual' the annual contribution.}
+#' \item{valor}{The value of the datum for each row.}
+#' }
+#' @examples
+#'
+#' pib_pm_demanda
+#'
+#' @source \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=5614&capsel=5615}
+#'
+'pib_pm_demanda'
+
+
+#' Gross domestic product (GDP) of Spain, income approach
+#'
+#' @description Quearterly Gross Domestic product of spain, calculated through the income apprach. Includes the final value of GDP and its aggregates. Includes total value for each aggregate. Data from 1995 to present.
+#'
+#' \describe{
+#' \item{periodo}{The last day of the quarter of each row, in date format.}
+#' \item{agregado}{The code for each aggregate of the GDP through the income approach. See 'pib_rentas_agregados' for a list of aggregates (in Spanish).}
+#' \item{ajuste}{'ajustad' means that data are adjusted from seasonality and calendar, and 'no_ajustado' means that are not adjusted.}
+#' \item{dato}{The type of datum for each row. 'base' means the actual value, 'var_trim' the quarterly variation and 'var_anual' the annual variation.}
+#' \item{valor}{The value of the datum for each row.}
+#' }
+#' @examples
+#'
+#' pib_pm_rentas
+#'
+#' @source \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=5614&capsel=5615}
+#'
+'pib_pm_rentas'
+
+#' Aggregates of the Gross Domestic Product through the production  approach
+#'
+#' @description The code used to represent the GDP aggregates in 'pib_pm_oferta' and the name of each aggregate as presented in original data.
+#'
+#' \describe{
+#' \item{agr_label}{The label used in the 'agregado' field of 'pib_pm_oferta'.}
+#' \item{agregado}{The actual name of the aggregate as presented in original data (in Spanish).}
+#' }
+#' @examples
+#'
+#' pib_oferta_agregados
+#'
+#' @source \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=5614&capsel=5615}
+#'
+'pib_oferta_agregados'
+
+#' Aggregates of the Gross Domestic Product through the expenditure approach
+#'
+#' @description The code used to represent the GDP aggregates in 'pib_pm_demanda' and the name of each aggregate as presented in original data.
+#'
+#' \describe{
+#' \item{agr_label}{The label used in the 'agregado' field of 'pib_pm_demanda'.}
+#' \item{agregado}{The actual name of the aggregate as presented in original data (in Spanish).}
+#' }
+#' @examples
+#'
+#' pib_demanda_agregados
+#'
+#' @source \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=5614&capsel=5615}
+#'
+'pib_demanda_agregados'
+
+#' Aggregates of the Gross Domestic Product through the income approach
+#'
+#' @description The code used to represent the GDP aggregates in 'pib_pm_rentas' and the name of each aggregate as presented in original data.
+#'
+#' \describe{
+#' \item{agr_label}{The label used in the 'agregado' field of 'pib_pm_rentas'.}
+#' \item{agregado}{The actual name of the aggregate as presented in original data (in Spanish).}
+#' }
+#' @examples
+#'
+#' pib_rentas_agregados
+#'
+#' @source \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=5614&capsel=5615}
+#'
+'pib_rentas_agregados'
