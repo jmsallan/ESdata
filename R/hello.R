@@ -16,6 +16,24 @@
 #'
 'ccaa_iso'
 
+#' ISO code of Spanish provinces
+#'
+#' @description The ISO 3166-2 codes for Spanish provinces
+#'
+#' \describe{
+#' \item{label}{The autonomous community name, as it appears in INE datasets.}
+#' \item{iso}{The ISO code of the autonomous community (e.g., ES-B for Barcelona).}
+#' \item{nombres}{The official name of the province.}
+#' }
+#'
+#' @examples
+#'
+#' provincias_iso
+#'
+#' @source \url{https://es.wikipedia.org/wiki/ISO_3166-2:ES}
+#'
+'provincias_iso'
+
 #' Encuesta de Población Activa (Labor Force Survey) by region, age and gender
 #'
 #' @description The Spanish Labor Force Survey by region, age and gender in tidy format.
