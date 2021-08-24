@@ -5,7 +5,7 @@
 \alias{defunciones_sexo_edad}
 \title{weekly report of deaths in Spain by province, gender and age group}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 1122660 rows and 6 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 442260 rows and 6 columns.
 }
 \source{
 \url{https://www.ine.es/jaxiT3/files/t/es/csv_bdsc/36166.csv?nocab=1}

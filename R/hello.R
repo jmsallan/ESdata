@@ -1,6 +1,6 @@
 #' ISO code of Spanish regions
 #'
-#' @description The ISO 3166-2 codes for Spanish autonomous communities
+#' @description The ISO 3166-2 codes for Spanish regions (autonomous communities)
 #'
 #' \describe{
 #' \item{label}{The autonomous community name, as it appears in INE datasets.}

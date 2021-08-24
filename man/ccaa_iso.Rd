@@ -14,7 +14,7 @@ An object of class \code{data.frame} with 20 rows and 3 columns.
 ccaa_iso
 }
 \description{
-The ISO 3166-2 codes for Spanish autonomous communities
+The ISO 3166-2 codes for Spanish regions (autonomous communities)
 
 \describe{
 \item{label}{The autonomous community name, as it appears in INE datasets.}

@@ -5,7 +5,7 @@
 \alias{defunciones}
 \title{weekly report of deaths in Spain by province}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 148632 rows and 4 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 59678 rows and 4 columns.
 }
 \source{
 \url{https://www.ine.es/jaxiT3/files/t/es/csv_bdsc/35176.csv?nocab=1}
