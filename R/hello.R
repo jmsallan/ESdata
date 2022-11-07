@@ -139,6 +139,7 @@
 #'
 #'  @description Monthly inflation data of Spain by group of goods since 1993.
 #'
+#'\describe{
 #' \item{periodo}{The last day of the month of each row, in date format.}
 #' \item{grupo}{The label 'general' is for the generic inflation data. Each group is identified by aa index in the range G01 to G12. See 'ipc_clas_grupos' for the actual meaning of each group.}
 #' \item{dato}{The type of datum for each row: 'mensual' is the monthly inflation rate, 'anual' the inter-annual inflation rate and 'acumulada' the cumulative inflation rate for the year.}
@@ -289,6 +290,7 @@
 #' \describe{
 #' \item{periodo}{The last day of the quarter of each row, in date format.}
 #' \item{agregado}{The code for each aggregate of the GDP through the production approach. See 'pib_oferta_agregados' for a list of aggregates (in Spanish).}
+#' \item{nivel}{Level of the aggregate.}
 #' \item{ajuste}{'ajustad' means that data are adjusted from seasonality and calendar, and 'no_ajustado' means that are not adjusted.}
 #' \item{tipo}{Rows with 'valor' contain the actual GDP value, and rows with 'indice' and indexed value.}
 #' \item{dato}{The type of datum for each row. 'base' means the actual value, 'var_trim' the quarterly variation, 'var_anual' the annual variation, 'ap_trim' the quarterly contribution and 'ap_anual' the annual contribution.}
@@ -309,6 +311,7 @@
 #' \describe{
 #' \item{periodo}{The last day of the quarter of each row, in date format.}
 #' \item{agregado}{The code for each aggregate of the GDP through the production approach. See 'pib_demanda_agregados' for a list of aggregates (in Spanish).}
+#' \item{nivel}{Level of the aggregate.}
 #' \item{ajuste}{'ajustad' means that data are adjusted from seasonality and calendar, and 'no_ajustado' means that are not adjusted.}
 #' \item{tipo}{Rows with 'valor' contain the actual GDP value, and rows with 'indice' and indexed value.}
 #' \item{dato}{The type of datum for each row. 'base' means the actual value, 'var_trim' the quarterly variation, 'var_anual' the annual variation, 'ap_trim' the quarterly contribution and 'ap_anual' the annual contribution.}
@@ -330,6 +333,7 @@
 #' \describe{
 #' \item{periodo}{The last day of the quarter of each row, in date format.}
 #' \item{agregado}{The code for each aggregate of the GDP through the income approach. See 'pib_rentas_agregados' for a list of aggregates (in Spanish).}
+#' \item{nivel}{Level of the aggregate.}
 #' \item{ajuste}{'ajustad' means that data are adjusted from seasonality and calendar, and 'no_ajustado' means that are not adjusted.}
 #' \item{dato}{The type of datum for each row. 'base' means the actual value, 'var_trim' the quarterly variation and 'var_anual' the annual variation.}
 #' \item{valor}{The value of the datum for each row.}
@@ -349,6 +353,7 @@
 #' \describe{
 #' \item{agr_label}{The label used in the 'agregado' field of 'pib_pm_oferta'.}
 #' \item{agregado}{The actual name of the aggregate as presented in original data (in Spanish).}
+#' \item{nivel}{Level of the aggregate.}
 #' }
 #' @examples
 #'
@@ -365,6 +370,7 @@
 #' \describe{
 #' \item{agr_label}{The label used in the 'agregado' field of 'pib_pm_demanda'.}
 #' \item{agregado}{The actual name of the aggregate as presented in original data (in Spanish).}
+##' \item{nivel}{Level of the aggregate.}
 #' }
 #' @examples
 #'
@@ -381,6 +387,7 @@
 #' \describe{
 #' \item{agr_label}{The label used in the 'agregado' field of 'pib_pm_rentas'.}
 #' \item{agregado}{The actual name of the aggregate as presented in original data (in Spanish).}
+#' \item{nivel}{Level of the aggregate.}
 #' }
 #' @examples
 #'

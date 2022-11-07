@@ -5,7 +5,7 @@
 \alias{epa_edad}
 \title{Encuesta de Población Activa (Labor Force Survey) by region, age and gender}
 \format{
-An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 171000 rows and 6 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 189240 rows and 6 columns.
 }
 \source{
 \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=982&capsel=983}

@@ -5,7 +5,7 @@
 \alias{pib_pm_rentas}
 \title{Gross domestic product (GDP) of Spain, income approach}
 \format{
-An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 26752 rows and 5 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 47232 rows and 6 columns.
 }
 \source{
 \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=5614&capsel=5615}
@@ -19,6 +19,7 @@ Quearterly Gross Domestic product of spain, calculated through the income apprac
 \describe{
 \item{periodo}{The last day of the quarter of each row, in date format.}
 \item{agregado}{The code for each aggregate of the GDP through the income approach. See 'pib_rentas_agregados' for a list of aggregates (in Spanish).}
+\item{nivel}{Level of the aggregate.}
 \item{ajuste}{'ajustad' means that data are adjusted from seasonality and calendar, and 'no_ajustado' means that are not adjusted.}
 \item{dato}{The type of datum for each row. 'base' means the actual value, 'var_trim' the quarterly variation and 'var_anual' the annual variation.}
 \item{valor}{The value of the datum for each row.}

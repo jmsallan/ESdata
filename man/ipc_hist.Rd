@@ -5,7 +5,7 @@
 \alias{ipc_hist}
 \title{Historical series of inflation rates (since 1961)}
 \format{
-An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 2134 rows and 3 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 2171 rows and 3 columns.
 }
 \source{
 \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=3470&capsel=3466}

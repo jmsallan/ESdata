@@ -5,7 +5,7 @@
 \alias{pib_pm_demanda}
 \title{Gross domestic product (GDP) of Spain, expenditure approach}
 \format{
-An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 52276 rows and 6 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 183164 rows and 7 columns.
 }
 \source{
 \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=5614&capsel=5615}
@@ -19,6 +19,7 @@ Quearterly Gross Domestic product of Spain, calculated through the expenditure a
 \describe{
 \item{periodo}{The last day of the quarter of each row, in date format.}
 \item{agregado}{The code for each aggregate of the GDP through the production approach. See 'pib_demanda_agregados' for a list of aggregates (in Spanish).}
+\item{nivel}{Level of the aggregate.}
 \item{ajuste}{'ajustad' means that data are adjusted from seasonality and calendar, and 'no_ajustado' means that are not adjusted.}
 \item{tipo}{Rows with 'valor' contain the actual GDP value, and rows with 'indice' and indexed value.}
 \item{dato}{The type of datum for each row. 'base' means the actual value, 'var_trim' the quarterly variation, 'var_anual' the annual variation, 'ap_trim' the quarterly contribution and 'ap_anual' the annual contribution.}

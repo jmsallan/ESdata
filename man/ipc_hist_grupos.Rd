@@ -5,7 +5,7 @@
 \alias{ipc_hist_grupos}
 \title{Historical series of inflation rates by group (since 1993)}
 \format{
-An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 12769 rows and 4 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 13272 rows and 4 columns.
 }
 \source{
 \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=3470&capsel=3466}
@@ -17,7 +17,12 @@ ipc_hist_grupos
 @description Monthly inflation data of Spain by group of goods since 1993.
 }
 \details{
-
+\describe{
+\item{periodo}{The last day of the month of each row, in date format.}
+\item{grupo}{The label 'general' is for the generic inflation data. Each group is identified by aa index in the range G01 to G12. See 'ipc_clas_grupos' for the actual meaning of each group.}
+\item{dato}{The type of datum for each row: 'mensual' is the monthly inflation rate, 'anual' the inter-annual inflation rate and 'acumulada' the cumulative inflation rate for the year.}
+\item{valor}{the inflation rate, in percentage.}
+}
 }
 \examples{
 

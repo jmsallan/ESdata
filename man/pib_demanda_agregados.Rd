@@ -5,7 +5,7 @@
 \alias{pib_demanda_agregados}
 \title{Aggregates of the Gross Domestic Product through the expenditure approach}
 \format{
-An object of class \code{data.frame} with 36 rows and 2 columns.
+An object of class \code{data.frame} with 36 rows and 3 columns.
 }
 \source{
 \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=5614&capsel=5615}
@@ -19,6 +19,7 @@ The code used to represent the GDP aggregates in 'pib_pm_demanda' and the name o
 \describe{
 \item{agr_label}{The label used in the 'agregado' field of 'pib_pm_demanda'.}
 \item{agregado}{The actual name of the aggregate as presented in original data (in Spanish).}
+\item{nivel}{Level of the aggregate.}
 }
 }
 \examples{

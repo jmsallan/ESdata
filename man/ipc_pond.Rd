@@ -5,7 +5,7 @@
 \alias{ipc_pond}
 \title{Weights of groups in the Consumer Price Index by region and year}
 \format{
-An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 960 rows and 4 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 1200 rows and 4 columns.
 }
 \source{
 \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=3470&capsel=3466}

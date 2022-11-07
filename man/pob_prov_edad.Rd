@@ -5,7 +5,7 @@
 \alias{pob_prov_edad}
 \title{Spanish population by region (province), age and gender}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 80454 rows and 5 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 83952 rows and 5 columns.
 }
 \source{
 \url{https://www.ine.es/jaxi/files/_px/es/csv_bdsc/t20/e245/p08/l0/03002.csv_bdsc?nocab=1}

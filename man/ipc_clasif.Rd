@@ -5,7 +5,7 @@
 \alias{ipc_clasif}
 \title{Spanish Consumer Price Index and inflation rates by classification level  (since 2002)}
 \format{
-An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 289213 rows and 5 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 313333 rows and 5 columns.
 }
 \source{
 \url{https://www.ine.es/dynt3/inebase/es/index.htm?padre=3470&capsel=3466}
