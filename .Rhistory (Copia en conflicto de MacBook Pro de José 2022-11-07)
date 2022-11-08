@@ -219,14 +219,6 @@ ipc_pond
 data("ipv")
 data("pib_pm_oferta")
 library(ESdata)
-?pib_pm_demanda
+roxygen2::roxygenise()
+roxygen2::roxygenise()
 library(ESdata)
-library(tidyverse)
-ipc_ccaa
-library(lubridate)
-ipc_ccaa %>%
-filter(year(periodo) >= 2018, region == "ES", grupo == "general", dato == "indice")
-ipc_ccaa %>%
-filter(year(periodo) >= 2018, region == "ES", grupo == "general", dato == "indice") %>%
-ggplot(aes(periodo, valor)) +
-geom_line()
