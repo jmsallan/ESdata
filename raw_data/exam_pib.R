@@ -45,8 +45,6 @@ pib_pm_rentas <- read_pib("30682")
 pib_pm_oferta_indice <- read_pib("30679")
 pib_pm_demanda_indice <- read_pib("30681")
 
-
-
 #---- elementos oferta agregada ----
 
 oferta_1 <- unique(c(pib_pm_oferta$`Agregados macroeconómicos: Nivel 1`))
@@ -109,7 +107,6 @@ rentas_2 <- rentas_2[which(!is.na(rentas_2))]
 
 idr_1 <- c("pib", "rem", "rem_A", "rem_BE", "rem_C", "rem_F", "rem_GT", "rem_GI", "rem_J", "rem_K", "rem_L", "rem_MN", "rem_OQ", "rem_RT", "ben", "imp_sub")
 
-idr_1[3]
 idr_2 <- c("sal", "css", "sal_A", "css_A", "sal_BE", "css_BE", "sal_C", "css_C", "sal_F", "css_F", "sal_GT", "css_GT", "sal_GI", "css_GI", "sal_J", "css_J", "sal_K", "css_K", "sal_L", "css_L", "sal_MN", "css_MN", "sal_OQ", "css_OQ", "sal_RT", "css_RT", "imp", "sub")
 
 r1 <- data.frame(agr_label = idr_1, agregado = rentas_1, nivel = 1)
@@ -121,17 +118,6 @@ save(pib_rentas_agregados, file = "data/pib_rentas_agregados.RData")
 
 
 
-#---- datos PIB ----
-
-pib_dato <- data.frame(dato_label = c("base", "var_trim", "var_anual") , dato = unique(pib_pm_oferta$`Niveles y tasas`))
-
-save(pib_dato, file = "data/pib_dato.RData")
-
-#---- tipo  PIB ----
-
-pib_tipo <- data.frame(tipo_label = c("no_ajustado", "ajustado"), tipo = unique(pib_pm_demanda$`Tipo de dato`))
-
-save(pib_tipo, file = "data/pib_tipo.RData")
 
 #---- PIB demanda ----.
 
@@ -139,34 +125,76 @@ pib_pm_demanda <- pib_pm_demanda %>% mutate(dato2 = "valor")
 pib_pm_demanda_indice <- pib_pm_demanda_indice %>% mutate(dato2 = "indice")
 pib_pm_demanda <- bind_rows(pib_pm_demanda, pib_pm_demanda_indice)
 
-pib_pm_demanda <- left_join(pib_pm_demanda, pib_dato, by =c("Niveles y tasas" = "dato"))
 
+# valores de dato de PIB (Niveles y Tasas)
+
+pib_dato <- data.frame(dato_label = c("base", "var_trim", "var_anual", "ap_trim", "ap_anual") , dato = unique(pib_pm_demanda$`Niveles y tasas`))
+
+save(pib_dato, file = "data/pib_dato.RData")
+
+# valores de tipo de PIB (Tipo de dato)
+
+pib_tipo <- data.frame(tipo_label = c("no_ajustado", "ajustado"), tipo = unique(pib_pm_demanda$`Tipo de dato`))
+
+save(pib_tipo, file = "data/pib_tipo.RData")
+
+pib_pm_demanda <- left_join(pib_pm_demanda, pib_dato, by =c("Niveles y tasas" = "dato"))
 
 pib_pm_demanda <- left_join(pib_pm_demanda, pib_tipo,
 by = c("Tipo de dato" = "tipo"))
 
 pib_d1 <- pib_pm_demanda %>%
-  filter(!is.na(`Agregados macroeconómicos: Nivel 1`)) %>%
+  filter(!is.na(`Agregados macroeconómicos: Nivel 1`),
+         is.na(`Agregados macroeconómicos: Nivel 2`),
+         is.na(`Agregados macroeconómicos: Nivel 3`),
+         is.na(`Agregados macroeconómicos: Nivel 4`),
+         is.na(`Agregados macroeconómicos: Nivel 5`),
+         is.na(`Agregados macroeconómicos: Nivel 6`)) %>%
   left_join(pib_demanda_agregados, by = c("Agregados macroeconómicos: Nivel 1" = "agregado"))
 
 pib_d2 <- pib_pm_demanda %>%
-  filter(!is.na(`Agregados macroeconómicos: Nivel 2`)) %>%
+  filter(!is.na(`Agregados macroeconómicos: Nivel 1`),
+         !is.na(`Agregados macroeconómicos: Nivel 2`),
+         is.na(`Agregados macroeconómicos: Nivel 3`),
+         is.na(`Agregados macroeconómicos: Nivel 4`),
+         is.na(`Agregados macroeconómicos: Nivel 5`),
+         is.na(`Agregados macroeconómicos: Nivel 6`)) %>%
   left_join(pib_demanda_agregados, by = c("Agregados macroeconómicos: Nivel 2" = "agregado"))
 
 pib_d3 <- pib_pm_demanda %>%
-  filter(!is.na(`Agregados macroeconómicos: Nivel 3`)) %>%
+  filter(!is.na(`Agregados macroeconómicos: Nivel 1`),
+         !is.na(`Agregados macroeconómicos: Nivel 2`),
+         !is.na(`Agregados macroeconómicos: Nivel 3`),
+         is.na(`Agregados macroeconómicos: Nivel 4`),
+         is.na(`Agregados macroeconómicos: Nivel 5`),
+         is.na(`Agregados macroeconómicos: Nivel 6`)) %>%
   left_join(pib_demanda_agregados, by = c("Agregados macroeconómicos: Nivel 3" = "agregado"))
 
 pib_d4 <- pib_pm_demanda %>%
-  filter(!is.na(`Agregados macroeconómicos: Nivel 4`)) %>%
+  filter(!is.na(`Agregados macroeconómicos: Nivel 1`),
+         !is.na(`Agregados macroeconómicos: Nivel 2`),
+         !is.na(`Agregados macroeconómicos: Nivel 3`),
+         !is.na(`Agregados macroeconómicos: Nivel 4`),
+         is.na(`Agregados macroeconómicos: Nivel 5`),
+         is.na(`Agregados macroeconómicos: Nivel 6`)) %>%
   left_join(pib_demanda_agregados, by = c("Agregados macroeconómicos: Nivel 4" = "agregado"))
 
 pib_d5 <- pib_pm_demanda %>%
-  filter(!is.na(`Agregados macroeconómicos: Nivel 5`)) %>%
+  filter(!is.na(`Agregados macroeconómicos: Nivel 1`),
+         !is.na(`Agregados macroeconómicos: Nivel 2`),
+         !is.na(`Agregados macroeconómicos: Nivel 3`),
+         !is.na(`Agregados macroeconómicos: Nivel 4`),
+         !is.na(`Agregados macroeconómicos: Nivel 5`),
+         is.na(`Agregados macroeconómicos: Nivel 6`)) %>%
   left_join(pib_demanda_agregados, by = c("Agregados macroeconómicos: Nivel 5" = "agregado"))
 
 pib_d6 <- pib_pm_demanda %>%
-  filter(!is.na(`Agregados macroeconómicos: Nivel 6`)) %>%
+  filter(!is.na(`Agregados macroeconómicos: Nivel 1`),
+         !is.na(`Agregados macroeconómicos: Nivel 2`),
+         !is.na(`Agregados macroeconómicos: Nivel 3`),
+         !is.na(`Agregados macroeconómicos: Nivel 4`),
+         !is.na(`Agregados macroeconómicos: Nivel 5`),
+         !is.na(`Agregados macroeconómicos: Nivel 6`)) %>%
   left_join(pib_demanda_agregados, by = c("Agregados macroeconómicos: Nivel 6" = "agregado"))
 
 pib_pm_demanda2 <- bind_rows(pib_d1, pib_d2, pib_d3, pib_d4, pib_d5, pib_d6)
@@ -181,9 +209,22 @@ pib_pm_demanda2 <- ipc_dates(pib_pm_demanda2)
 
 pib_pm_demanda2 <- pib_pm_demanda2 %>% filter(!is.na(valor))
 
+
+pib_pm_demanda2 |>
+  group_by(agregado, ajuste, tipo, dato) |>
+  summarise(n = n()) |>
+  filter(n > 113)
+
+pib_pm_demanda2 |>
+  filter(ajuste == "ajustado", tipo == "indice", dato == "base") |>
+  group_by(agregado) |>
+  summarise(n = n()) |>
+  print(n = 200)
+
 pib_pm_demanda <- pib_pm_demanda2
 
 save(pib_pm_demanda, file = "data/pib_pm_demanda.RData")
+
 
 #---- PIB oferta ----
 
@@ -197,11 +238,13 @@ pib_pm_oferta <- left_join(pib_pm_oferta, pib_tipo,
                             by = c("Tipo de dato" = "tipo"))
 
 pib_o1 <- pib_pm_oferta %>%
-  filter(!is.na(`Agregados macroeconómicos: Nivel 1`)) %>%
+  filter(!is.na(`Agregados macroeconómicos: Nivel 1`),
+         is.na(`Agregados macroeconómicos: Nivel 2`)) %>%
   left_join(pib_oferta_agregados, by = c("Agregados macroeconómicos: Nivel 1" = "agregado"))
 
 pib_o2 <- pib_pm_oferta %>%
-  filter(!is.na(`Agregados macroeconómicos: Nivel 2`)) %>%
+  filter(!is.na(`Agregados macroeconómicos: Nivel 1`),
+         !is.na(`Agregados macroeconómicos: Nivel 2`)) %>%
   left_join(pib_oferta_agregados, by = c("Agregados macroeconómicos: Nivel 2" = "agregado"))
 
 pib_pm_oferta2 <- bind_rows(pib_o1, pib_o2)
@@ -216,57 +259,49 @@ pib_pm_oferta2 <- ipc_dates(pib_pm_oferta2)
 
 pib_pm_oferta2 <- pib_pm_oferta2 %>% filter(!is.na(valor))
 
+pib_pm_oferta2 |>
+  group_by(agregado, ajuste, tipo, dato) |>
+  summarise(n = n()) |>
+  filter(n > 113)
+
+pib_pm_oferta2 |>
+  filter(ajuste == "ajustado", tipo == "indice", dato == "base") |>
+  group_by(agregado) |>
+  summarise(n = n()) |>
+  print(n = 200)
+
 pib_pm_oferta <- pib_pm_oferta2
 
 save(pib_pm_oferta, file = "data/pib_pm_oferta.RData")
 
 #---- PIB rentas -----
 
-pib_pm_rentas |>
-  filter(Periodo == "2022T3",
-         `Tipo de dato` == "Datos ajustados de estacionalidad y calendario",
-         `Niveles y tasas` == "Dato base",
-         `Agregados macroeconómicos: Nivel 1` == "Remuneración de los asalariados")
-
-pib_pm_rentas <- pib_pm_rentas |>
-  mutate(agregados = ifelse(is.na(`Agregados macroeconómicos: Nivel 2`), `Agregados macroeconómicos: Nivel 1`, `Agregados macroeconómicos: Nivel 2`)) |>
-  select(-c(`Agregados macroeconómicos: Nivel 1`, `Agregados macroeconómicos: Nivel 2`))
-
-pib_pm_rentas |>
-  filter(Periodo == "2022T3",
-         `Tipo de dato` == "Datos ajustados de estacionalidad y calendario",
-         `Niveles y tasas` == "Dato base",
-         agregados == "Remuneración de los asalariados")
-
+pib_pm_rentas <- left_join(pib_pm_rentas, pib_tipo,
+                           by = c("Tipo de dato" = "tipo"))
 
 pib_pm_rentas <- left_join(pib_pm_rentas, pib_dato,
                            by =c("Niveles y tasas" = "dato"))
 
-pib_pm_rentas |>
-  filter(Periodo == "2022T3",
-         `Tipo de dato` == "Datos ajustados de estacionalidad y calendario",
-         dato_label == "base",
-         agregados == "Remuneración de los asalariados")
+r1 <- pib_pm_rentas |>
+  filter(!is.na(`Agregados macroeconómicos: Nivel 1`),
+         is.na(`Agregados macroeconómicos: Nivel 2`))  %>%
+  left_join(pib_rentas_agregados, by = c("Agregados macroeconómicos: Nivel 1" = "agregado"))
 
+r2 <- pib_pm_rentas |>
+  filter(!is.na(`Agregados macroeconómicos: Nivel 1`),
+         !is.na(`Agregados macroeconómicos: Nivel 2`))  %>%
+  left_join(pib_rentas_agregados, by = c("Agregados macroeconómicos: Nivel 2" = "agregado"))
 
-pib_pm_rentas <- left_join(pib_pm_rentas, pib_tipo,
-                           by = c("Tipo de dato" = "tipo"))
+pib_pm_rentas2 <- bind_rows(r1, r2)
 
-pib_pm_rentas |>
-  filter(Periodo == "2022T3",
-         tipo_label == "ajustado",
-         dato_label == "base",
-         agregados == "Remuneración de los asalariados")
-
-
-pib_pm_rentas <- left_join(pib_pm_rentas, pib_rentas_agregados,
-                           by = c("agregados" = "agregado"))
-
-pib_pm_rentas |>
-  filter(Periodo == "2022T3",
-         tipo_label == "ajustado",
-         dato_label == "base",
-         agr_label == "rem")
+# pib_pm_rentas <- pib_pm_rentas |>
+#   mutate(agregados = ifelse(is.na(`Agregados macroeconómicos: Nivel 2`), `Agregados macroeconómicos: Nivel 1`, `Agregados macroeconómicos: Nivel 2`)) |>
+#   select(-c(`Agregados macroeconómicos: Nivel 1`, `Agregados macroeconómicos: Nivel 2`))
+#
+#
+#
+# pib_pm_rentas <- left_join(pib_pm_rentas, pib_rentas_agregados,
+#                            by = c("agregados" = "agregado"))
 
 
 # pib_r1 <- pib_pm_rentas %>%
@@ -279,28 +314,26 @@ pib_pm_rentas |>
 
 # pib_pm_rentas2 <- bind_rows(pib_r1, pib_r2)
 
-pib_pm_rentas <- pib_pm_rentas %>%
+pib_pm_rentas2 <- pib_pm_rentas2 %>%
   rename(agregado = agr_label, ajuste = tipo_label, dato = dato_label, periodo = Periodo, valor = Total) %>%
   select(periodo, agregado, nivel, ajuste, dato, valor)
 
+pib_pm_rentas2 <- pib_pm_rentas2 %>% filter(!is.na(valor))
+
+pib_pm_rentas2 <- ipc_dates(pib_pm_rentas2)
+
+pib_pm_rentas2 |>
+  group_by(agregado, ajuste, dato) |>
+  summarise(n = n()) |>
+  filter(n > 113)
+
+pib_pm_rentas2 |>
+  filter(ajuste == "ajustado", dato == "base") |>
+  group_by(agregado) |>
+  summarise(n = n()) |>
+  print(n = 200)
 
 
-pib_pm_rentas <- pib_pm_rentas %>% filter(!is.na(valor))
-
-pib_pm_rentas |>
-  filter(periodo == "2022T3",
-         ajuste == "ajustado",
-         dato == "base",
-         agregado == "rem")
-
-
-pib_pm_rentas <- ipc_dates(pib_pm_rentas)
-
-pib_pm_rentas |>
-  filter(periodo == as.Date("2022-09-30"),
-         ajuste == "ajustado",
-         dato == "base",
-         agregado == "rem")
-
+pib_pm_rentas <- pib_pm_rentas2
 
 save(pib_pm_rentas, file = "data/pib_pm_rentas.RData")
