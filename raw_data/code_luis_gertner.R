@@ -6,7 +6,7 @@ library(lubridate)
 pib_pm_oferta |>
   filter(nivel == 1,
          tipo == "indice",
-         dato == "base",
+         dato == "var_anual",
          ajuste == "ajustado") |>
   mutate(month = month(periodo), year = year(periodo)) |>
   filter(month == 6) |>
